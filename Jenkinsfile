@@ -4,9 +4,9 @@ node {
   }
   stage('SonarQube analysis') {
     def scannerHome = tool 'sonarscanner_targz';
-    withSonarQubeEnv('sonarscanner') { // If you have configured more than one global server connection, you can specify its name
+    withSonarQubeEnv('sonarscanner_targz') { // If you have configured more than one global server connection, you can specify its name
       sh "ls /opt/sonarscanner/"
-      sh "/opt/sonarscanner/bin/sonar-scanner"
+      sh "ls /var/jenkins_home/tools/hudson.plugins.sonar.SonarRunnerInstallation/sonarscanner_targz"
     }
   }
 }
